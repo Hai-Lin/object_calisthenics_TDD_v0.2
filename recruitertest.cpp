@@ -10,6 +10,12 @@ TEST(RecruiterCanPostJob, postJob) {
 	Job* job = recruiter->postJob();
 }
 
+TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
+	Recruiter* recruiter = new Recruiter();
+	Job* job = recruiter->postJob();
+	JobCollection* jobCollection = recruiter->getAllJobs();
+}
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest( &argc, argv );
 	return RUN_ALL_TESTS();

@@ -2,3 +2,7 @@
 class Job {
 
 };
+
+class JobCollection {
+
+};

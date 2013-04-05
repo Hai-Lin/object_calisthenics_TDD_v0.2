@@ -7,20 +7,23 @@ TEST(EmptyTest, emptytest) {
 
 TEST(RecruiterCanPostJob, postJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job = recruiter->postJob();
+	Job* job = new Job();
+	recruiter->postJob(job);
 	delete recruiter;
 }
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job = recruiter->postJob();
+	Job* job = new Job();
+	recruiter->postJob(job);
 	JobCollection* jobCollection = recruiter->getAllJobs();
 	delete recruiter;
 }
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, postOneJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job = recruiter->postJob();
+	Job* job = new Job();
+	recruiter->postJob(job);
 	JobCollection* jobCollection = recruiter->getAllJobs();
 	EXPECT_EQ(jobCollection->atIndex(0), job);
 	delete recruiter;
@@ -28,9 +31,12 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, postOneJob) {
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job1 = recruiter->postJob();
-	Job* job2 = recruiter->postJob();
-	Job* job3 = recruiter->postJob();
+	Job* job1 = new Job();
+	Job* job2 = new Job();
+	Job* job3 = new Job();
+	recruiter->postJob(job1);
+	recruiter->postJob(job2);
+	recruiter->postJob(job3);
 	JobCollection* jobCollection = recruiter->getAllJobs();
 	EXPECT_EQ(jobCollection->atIndex(0), job1);
 	EXPECT_EQ(jobCollection->atIndex(1), job2);

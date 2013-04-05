@@ -4,6 +4,6 @@ class Recruiter{
 		JobCollection* _jobCollection;
 	public:
 		Recruiter();
-		Job* postJob();
+		void postJob(Job*);
 		JobCollection* getAllJobs();
 };

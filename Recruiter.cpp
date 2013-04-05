@@ -4,10 +4,8 @@ Recruiter::Recruiter() {
 	_jobCollection = new JobCollection();
 }
 
-Job* Recruiter::postJob() {
-	Job* job = new Job();
+void Recruiter::postJob(Job* job) {
 	_jobCollection->addJobToCollection(job);
-	return job; 
 }
 
 JobCollection* Recruiter::getAllJobs() {

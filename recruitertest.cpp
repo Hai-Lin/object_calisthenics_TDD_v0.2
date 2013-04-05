@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "Recruiter.h"
+#include "Job.h"
 
 TEST(EmptyTest, emptytest) {
 
@@ -16,7 +17,7 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = new Job();
 	recruiter->postJob(job);
-	JobCollection* jobCollection = recruiter->getAllJobs();
+	RecruiterJobs* jobs = recruiter->getAllJobs();
 	delete recruiter;
 }
 
@@ -24,8 +25,8 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, postOneJob) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = new Job();
 	recruiter->postJob(job);
-	JobCollection* jobCollection = recruiter->getAllJobs();
-	EXPECT_EQ(jobCollection->atIndex(0), job);
+	RecruiterJobs* jobs = recruiter->getAllJobs();
+	EXPECT_EQ(jobs->atIndex(0), job);
 	delete recruiter;
 }
 
@@ -37,10 +38,10 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	recruiter->postJob(job1);
 	recruiter->postJob(job2);
 	recruiter->postJob(job3);
-	JobCollection* jobCollection = recruiter->getAllJobs();
-	EXPECT_EQ(jobCollection->atIndex(0), job1);
-	EXPECT_EQ(jobCollection->atIndex(1), job2);
-	EXPECT_EQ(jobCollection->atIndex(2), job3);
+	RecruiterJobs* jobs = recruiter->getAllJobs();
+	EXPECT_EQ(jobs->atIndex(0), job1);
+	EXPECT_EQ(jobs->atIndex(1), job2);
+	EXPECT_EQ(jobs->atIndex(2), job3);
 	delete recruiter;
 }
 

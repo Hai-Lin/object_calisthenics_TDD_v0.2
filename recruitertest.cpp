@@ -18,6 +18,14 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	delete recruiter;
 }
 
+TEST(RecruiterCanSeeAListOfJobTheyPost, SeeJobTheyJustPost) {
+	Recruiter* recruiter = new Recruiter();
+	Job* job = recruiter->postJob();
+	JobCollection* jobCollection = recruiter->getAllJobs();
+	EXPECT_EQ(jobCollection->atIndex(0), job);
+	delete recruiter;
+}
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest( &argc, argv );
 	return RUN_ALL_TESTS();

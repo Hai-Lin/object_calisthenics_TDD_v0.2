@@ -18,7 +18,7 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	delete recruiter;
 }
 
-TEST(RecruiterCanSeeAListOfJobTheyPost, SeeJobTheyJustPost) {
+TEST(RecruiterCanSeeAListOfJobTheyPost, postOneJob) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = recruiter->postJob();
 	JobCollection* jobCollection = recruiter->getAllJobs();

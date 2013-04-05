@@ -4,3 +4,7 @@ Job* Recruiter::postJob() {
 	return job; 
 }
 
+JobCollection* Recruiter::getAllJobs() {
+	return _jobCollection; 
+}
+

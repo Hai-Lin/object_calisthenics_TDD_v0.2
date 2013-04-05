@@ -8,12 +8,14 @@ TEST(EmptyTest, emptytest) {
 TEST(RecruiterCanPostJob, postJob) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = recruiter->postJob();
+	delete recruiter;
 }
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = recruiter->postJob();
 	JobCollection* jobCollection = recruiter->getAllJobs();
+	delete recruiter;
 }
 
 int main(int argc, char **argv) {

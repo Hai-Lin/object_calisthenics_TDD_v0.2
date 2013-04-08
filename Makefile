@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g   -I gtest-1.6.0/include mybuild/libgtest.a -lpthread 
 PROG =object_calisthenics_hai 
-SRCS=ladderstest.cpp recruiter.cpp Job.cpp JobSeeker.cpp 
+SRCS=jobseekertest.cpp recruiter.cpp Job.cpp JobSeeker.cpp JobSeekerApplyJob.cpp 
 
 
 all: $(PROG)

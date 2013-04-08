@@ -1,5 +1,6 @@
 #include"utility.h"
 class Job;
+class Resume;
 
 class JobSeekerJobs
 {
@@ -13,8 +14,9 @@ class JobSeekerJobs
 class JobSeeker {
 	private:
 		JobSeekerJobs* _savedJobs;
+		Resume* _resume;
 	public:
-		JobSeeker();
-		void saveJob(Job* );
-		void applyJob(Job* );
+		JobSeeker(Resume* = NULL);
+		void saveJob(Job*);
+		bool hasResume();
 };

@@ -9,12 +9,20 @@ void JobSeekerJobs::addJob(Job* job) {
 	_jobs.push_back(job);
 }
 
-JobSeeker::JobSeeker() {
+JobSeeker::JobSeeker(Resume* resume) {
 	JobSeekerJobs* jobSeekerJobs = new JobSeekerJobs();
 	_savedJobs = jobSeekerJobs;
+	_resume = resume;
 }
 
 void JobSeeker::saveJob(Job* job) {
 	_savedJobs->addJob(job);
+}
+
+bool JobSeeker::hasResume() {
+	if(_resume != NULL)
+		return true;
+	if(_resume == NULL)
+		return false;
 }
 

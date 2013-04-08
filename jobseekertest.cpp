@@ -12,6 +12,12 @@ TEST(JobSeekersCanSaveJob, saveOneJob) {
 	jobSeeker->saveJob(job );
 }
 
+TEST(JobSeekersCanApplyJob, applyOneJob) {
+	JobSeeker* jobSeeker = new JobSeeker();	
+	Job * job = new Job();
+	jobSeeker->applyJob(job );
+}
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest( &argc, argv );
 	return RUN_ALL_TESTS();

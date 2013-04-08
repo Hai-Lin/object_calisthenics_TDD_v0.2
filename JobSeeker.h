@@ -16,4 +16,5 @@ class JobSeeker {
 	public:
 		JobSeeker();
 		void saveJob(Job* );
+		void applyJob(Job* );
 };

@@ -9,13 +9,13 @@ TEST(EmptyTest, emptytest) {
 TEST(JobSeekersCanSaveJob, saveOneJob) {
 	JobSeeker* jobSeeker = new JobSeeker();	
 	Job * job = new Job();
-	jobSeeker->saveJob(job );
+	jobSeeker->saveJob(job);
 }
 
 TEST(JobSeekersCanApplyJob, applyOneJob) {
 	JobSeeker* jobSeeker = new JobSeeker();	
 	Job * job = new Job();
-	jobSeeker->applyJob(job );
+	jobSeeker->applyJob(job);
 }
 
 int main(int argc, char **argv) {

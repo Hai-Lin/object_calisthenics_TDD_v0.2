@@ -1,8 +1,5 @@
 #include <gtest/gtest.h>
-#include "Recruiter.h"
-#include "JobSeeker.h"
-#include "Job.h"
-#include "Resume.h"
+#include "testhelper.h"
 
 Job* createATSJob() {
 	JobType type = ATS;

@@ -11,3 +11,11 @@ bool Job::isThisJobNeedResume() {
 		return true;
 }
 	
+Jobs::Jobs() {
+	vector<Job*> jobs;
+	_jobs = jobs;
+}
+
+void Jobs::addJob(Job* job) {
+	_jobs.push_back(job);
+}

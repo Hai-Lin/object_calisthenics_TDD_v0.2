@@ -1,5 +1,5 @@
 #include "JobSeekerApplyJob.h"
-
+/*
 Jobs::Jobs() {
 	vector<Job*> jobs;
 	_jobs = jobs;
@@ -8,7 +8,7 @@ Jobs::Jobs() {
 void Jobs::addJob(Job* job) {
 	_jobs.push_back(job);
 }
-
+*/
 JobSeekerAppliedJobs::JobSeekerAppliedJobs() {
 	map<JobSeeker*, Jobs*> jobSeekerAppliedJobs;
 	_jobSeekerAppliedJobs = jobSeekerAppliedJobs;

@@ -1,14 +1,6 @@
 #include "Job.h"
 #include "JobSeeker.h"
 
-class Jobs {
-	private:
-		vector<Job*> _jobs;
-	public:
-		Jobs();
-		void addJob(Job*);
-};
-
 class JobSeekerAppliedJobs {
 	private:
 		map<JobSeeker*, Jobs*> _jobSeekerAppliedJobs;

@@ -17,6 +17,18 @@ TEST(JobSeekersCanApplyJob, applyOneJob) {
 	EXPECT_FALSE(jobSeekerApplyJob->applyJob(jobSeekerWithoutResume, JReqJob));
 }
 
+TEST(JobSeekersCanSaveJob, savejob) {
+	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();
+	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
+	Job* atsJob = createATSJob();
+	Job* JReqJob = createJReqJob();
+	JobSeekerSaveJob* jobSeekerSaveJob = new JobSeekerSaveJob();
+	jobSeekerSaveJob->saveJob(jobSeekerWithResume, atsJob);
+	jobSeekerSaveJob->saveJob(jobSeekerWithResume, JReqJob);
+	jobSeekerSaveJob->saveJob(jobSeekerWithoutResume, JReqJob);
+	jobSeekerSaveJob->saveJob(jobSeekerWithoutResume, atsJob);
+}
+
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest( &argc, argv );

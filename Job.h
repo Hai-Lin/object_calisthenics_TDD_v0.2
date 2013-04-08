@@ -1,4 +1,6 @@
 #include"utility.h"
+#ifndef JOB
+#define JOB
 
 class Job {
 	private:
@@ -8,3 +10,12 @@ class Job {
 		bool isThisJobNeedResume();
 };
 
+class Jobs {
+	private:
+		vector<Job*> _jobs;
+	public:
+		Jobs();
+		void addJob(Job*);
+};
+
+#endif

@@ -21,7 +21,7 @@ void Jobs::addJob(Job* job) {
 }
 
 Job* Jobs::atIndex(int index) {
-	if(index > _jobs.size()) {
+	if(index >= _jobs.size()) {
 		cout<<"Index bigger than jobs size, exit!"<<endl;
 		exit(-1);
 	}

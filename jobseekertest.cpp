@@ -30,6 +30,7 @@ TEST(JobSeekersCanSaveJob, savejob) {
 	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
 	Job* atsJob = createATSJob();
 	Job* JReqJob = createJReqJob();
+	SavedJobManager* savedJobManager = new savedJobManager();
 	JobSeekerSaveJob* jobSeekerSaveJob = new JobSeekerSaveJob();
 	jobSeekerSaveJob->saveJob(jobSeekerWithResume, atsJob);
 	jobSeekerSaveJob->saveJob(jobSeekerWithResume, JReqJob);

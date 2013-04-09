@@ -7,5 +7,6 @@ class JobSeekerSaveJob {
 	public:
 		JobSeekerSaveJob();
 		void saveJob(JobSeeker*, Job*);
+		Jobs* getAllJobs(JobSeeker*);
 };
 

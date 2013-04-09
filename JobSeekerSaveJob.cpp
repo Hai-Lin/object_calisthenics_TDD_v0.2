@@ -15,3 +15,6 @@ void JobSeekerSaveJob::saveJob(JobSeeker* jobSeeker, Job* job) {
 	}
 }
 
+Jobs* JobSeekerSaveJob::getAllJobs(JobSeeker* jobSeeker) {
+	return _jobSeekerSavedJobs[jobSeeker];
+}

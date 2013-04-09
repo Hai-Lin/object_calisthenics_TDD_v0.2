@@ -2,10 +2,10 @@
 
 class SavedJobsManager {
 	private:
-		map<JobSeeker*, SavedJobs*> _jobSeekerSavedJobs;
+		SavedJobs* _savedJobs;
 	public:
 		SavedJobsManager();
 		void saveJob(JobSeeker*, Job*);
-		SavedJobs* seeAllSavedJobs(JobSeeker*);
+		Jobs* seeAllSavedJobs(JobSeeker*);
 };
 

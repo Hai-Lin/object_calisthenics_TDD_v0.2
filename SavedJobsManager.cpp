@@ -2,20 +2,15 @@
 
 
 SavedJobsManager::SavedJobsManager() {
-	map<JobSeeker*, SavedJobs*> jobSeekerSavedJobs;
-	_jobSeekerSavedJobs = jobSeekerSavedJobs;
+	SavedJobs* savedJobs = new SavedJobs();
+	_savedJobs = savedJobs;
 }
 
 void SavedJobsManager::saveJob(JobSeeker* jobSeeker, Job* job) {
-	if(_jobSeekerSavedJobs.count(jobSeeker) != 0)
-		_jobSeekerSavedJobs[jobSeeker]->addJob(jobSeeker, job);
-	if(_jobSeekerSavedJobs.count(jobSeeker) == 0) {
-		SavedJobs* savedJobs = new SavedJobs();
-		savedJobs->addJob(jobSeeker, job);
-		_jobSeekerSavedJobs[jobSeeker] = savedJobs;
-	}
+	if(jobSeeker and job)
+		_savedJobs->addJob(jobSeeker, job);
 }
 
-SavedJobs* SavedJobsManager::seeAllSavedJobs(JobSeeker* jobSeeker) {
-	return _jobSeekerSavedJobs[jobSeeker];
+Jobs* SavedJobsManager::seeAllSavedJobs(JobSeeker* jobSeeker) {
+	return _savedJobs->seeAllSavedJobs(jobSeeker);
 }

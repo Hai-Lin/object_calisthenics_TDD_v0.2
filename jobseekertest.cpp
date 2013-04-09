@@ -36,8 +36,11 @@ TEST(JobSeekersCanSaveJob, savejob) {
 	savedJobsManager->saveJob(jobSeekerWithResume, JReqJob);
 	savedJobsManager->saveJob(jobSeekerWithoutResume, JReqJob);
 	savedJobsManager->saveJob(jobSeekerWithoutResume, atsJob);
-	SavedJobs* savedJobs = savedJobsManager->seeAllSavedJobs(jobSeekerWithResume);
-//	EXPECT_EQ(jobs->atIndex(0), atsJob);
-//	EXPECT_EQ(jobs->atIndex(1), JReqJob);
+	Jobs* jobs = savedJobsManager->seeAllSavedJobs(jobSeekerWithResume);
+	EXPECT_EQ(jobs->atIndex(0), atsJob);
+	EXPECT_EQ(jobs->atIndex(1), JReqJob);
+	jobs = savedJobsManager->seeAllSavedJobs(jobSeekerWithoutResume);
+	EXPECT_EQ(jobs->atIndex(0), JReqJob);
+	EXPECT_EQ(jobs->atIndex(1), atsJob);
 }
 

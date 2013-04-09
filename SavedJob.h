@@ -7,8 +7,10 @@ class SavedJob {
 	private:
 		Job* _job;
 		JobSeeker* _jobSeeker;
+		bool isSavedBy(JobSeeker*);
 	public:
 		SavedJob(Job*, JobSeeker*);
+		void askForJobFromJobSeeker(JobSeeker* jobSeeker, Jobs* jobs); 
 };
 
 class SavedJobs {
@@ -18,6 +20,7 @@ class SavedJobs {
 		SavedJobs();
 		void addJob(JobSeeker*, Job*);
 		SavedJob* atIndex(int index);
+		Jobs* seeAllSavedJobs(JobSeeker*);
 };
 
 #endif

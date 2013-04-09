@@ -7,6 +7,7 @@ class JobSeekerAppliedJobs {
 	public:
 		JobSeekerAppliedJobs();
 		void addAJob(JobSeeker*, Job*);
+		Jobs* getAllJobs(JobSeeker*);
 };
 
 class JobSeekerApplyJob {
@@ -15,5 +16,6 @@ class JobSeekerApplyJob {
 	public:
 		JobSeekerApplyJob();
 		bool applyJob(JobSeeker*, Job*);
+		Jobs* getAllJobs(JobSeeker*);
 }; 
 

@@ -21,6 +21,12 @@ TEST(JobSeekersCanApplyJob, applyOneJob) {
 	EXPECT_TRUE(jobSeekerApplyJob->applyJob(jobSeekerWithResume, JReqJob));
 	EXPECT_TRUE(jobSeekerApplyJob->applyJob(jobSeekerWithoutResume, atsJob));
 	EXPECT_FALSE(jobSeekerApplyJob->applyJob(jobSeekerWithoutResume, JReqJob));
+	Jobs* jobs = jobSeekerApplyJob->getAllJobs(jobSeekerWithResume);
+	EXPECT_EQ(jobs->atIndex(0), atsJob);
+	EXPECT_EQ(jobs->atIndex(1), JReqJob);
+	JobSeeker* jobSeeker = createJobSeekerWithResume();
+	jobs = jobSeekerApplyJob->getAllJobs(jobSeeker);
+	EXPECT_EQ(NULL, jobs);
 }
 
 TEST(JobSeekersCanSaveJob, savejob) {

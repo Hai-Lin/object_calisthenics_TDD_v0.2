@@ -15,6 +15,10 @@ void JobSeekerAppliedJobs::addAJob(JobSeeker* jobSeeker, Job* job) {
 	}
 }
 
+Jobs* JobSeekerAppliedJobs::getAllJobs(JobSeeker* jobSeeker) {
+	return _jobSeekerAppliedJobs[jobSeeker];
+}
+
 JobSeekerApplyJob::JobSeekerApplyJob() {
 	_jobSeekerAppliedJobs = new JobSeekerAppliedJobs();
 }
@@ -28,3 +32,6 @@ bool JobSeekerApplyJob::applyJob(JobSeeker* jobSeeker, Job* job) {
 	return false;
 }
 
+Jobs* JobSeekerApplyJob::getAllJobs(JobSeeker* jobSeeker) {
+	return	_jobSeekerAppliedJobs->getAllJobs(jobSeeker); 
+}

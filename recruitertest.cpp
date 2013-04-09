@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
-#include "Recruiter.h"
-#include "Job.h"
+#include "testhelper.h"
 
 TEST(EmptyTest, emptytest) {
 
@@ -8,11 +7,12 @@ TEST(EmptyTest, emptytest) {
 
 TEST(RecruiterCanPostJob, postJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job = new Job();
-	recruiter->postJob(job);
+	Job* job = createATSJob();
+	RecruiterPostJob* recruiterPostJob = new RecruiterPostJob();
+	recruiterPostJob->postJob(recruiter, job);
 	delete recruiter;
 }
-
+/*
 TEST(RecruiterCanSeeAListOfJobTheyPost, seejobs) {
 	Recruiter* recruiter = new Recruiter();
 	Job* job = new Job();
@@ -44,7 +44,7 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	EXPECT_EQ(jobs->atIndex(2), job3);
 	delete recruiter;
 }
-
+*/
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest( &argc, argv );
 	return RUN_ALL_TESTS();

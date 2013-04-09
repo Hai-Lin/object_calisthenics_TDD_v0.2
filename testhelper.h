@@ -7,6 +7,7 @@
 #include "JobSeekerSaveJob.h"
 #include "RecruiterPostJob.h"
 #include "SavedJob.h"
+#include "jobapplication.h"
 
 Job* createATSJob();
 Job* createJReqJob();

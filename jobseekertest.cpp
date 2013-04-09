@@ -4,13 +4,6 @@
 TEST(EmptyTest, emptytest) {
 }
 
-TEST(JobSeekersCanSaveJob, saveOneJob) {
-	JobSeeker* jobSeeker = new JobSeeker();	
-	Job* job = createATSJob();
-	JobSeekerSaveJob* jobSeekerSaveJob = new JobSeekerSaveJob();
-	jobSeekerSaveJob->saveJob(jobSeeker, job);
-}
-
 TEST(JobSeekerHaveResume, haveResumeTest) {
 	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();
 	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
@@ -40,6 +33,9 @@ TEST(JobSeekersCanSaveJob, savejob) {
 	jobSeekerSaveJob->saveJob(jobSeekerWithResume, JReqJob);
 	jobSeekerSaveJob->saveJob(jobSeekerWithoutResume, JReqJob);
 	jobSeekerSaveJob->saveJob(jobSeekerWithoutResume, atsJob);
+	Jobs* jobs = jobSeekerSaveJob->getAllJobs(jobSeekerWithResume);
+	EXPECT_EQ(jobs->atIndex(0), atsJob);
+	EXPECT_EQ(jobs->atIndex(1), JReqJob);
 }
 
 

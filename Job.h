@@ -16,6 +16,7 @@ class Jobs {
 	public:
 		Jobs();
 		void addJob(Job*);
+		Job* atIndex(int index);
 };
 
 #endif

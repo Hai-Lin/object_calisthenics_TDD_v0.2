@@ -1,9 +1,4 @@
-#include <gtest/gtest.h>
-#include "testhelper.h"
-
-TEST(EmptyTest, emptytest) {
-
-}
+#include "recruitertest.h"
 
 TEST(RecruiterCanPostJob, postOneJob) {
 	Recruiter* recruiter = new Recruiter();
@@ -16,7 +11,6 @@ TEST(RecruiterCanPostJob, postOneJob) {
 	delete recruiter;
 	delete job;
 }
-
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	Recruiter* recruiter = new Recruiter();
@@ -36,8 +30,4 @@ TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	delete job1;
 	delete job2;
 	delete job3;
-}
-int main(int argc, char **argv) {
-	::testing::InitGoogleTest( &argc, argv );
-	return RUN_ALL_TESTS();
 }

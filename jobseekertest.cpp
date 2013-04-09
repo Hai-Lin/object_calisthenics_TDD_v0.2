@@ -1,8 +1,4 @@
-#include <gtest/gtest.h>
-#include "testhelper.h"
-
-TEST(EmptyTest, emptytest) {
-}
+#include "jobseekertest.h"
 
 TEST(JobSeekerHaveResume, haveResumeTest) {
 	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();
@@ -44,8 +40,3 @@ TEST(JobSeekersCanSaveJob, savejob) {
 	EXPECT_EQ(jobs->atIndex(1), JReqJob);
 }
 
-
-int main(int argc, char **argv) {
-	::testing::InitGoogleTest( &argc, argv );
-	return RUN_ALL_TESTS();
-}

@@ -6,5 +6,6 @@ class JobsManager {
 		Jobs* _jobs;
 	public:
 		JobsManager();
-
+		void postJob(Recruiter*, JobType);
+		//Jobs* seeJobsPostBy(Recruiter*);
 };

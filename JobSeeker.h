@@ -14,4 +14,12 @@ class JobSeeker {
 		Resume* currentResume();
 };
 
+class JobSeekers {
+	private:
+		vector<JobSeeker*> _jobSeekers;
+	public:
+		JobSeekers();
+		void addJobSeeker(JobSeeker*);
+};
+
 #endif

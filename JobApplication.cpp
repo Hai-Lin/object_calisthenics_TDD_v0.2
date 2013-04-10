@@ -14,6 +14,10 @@ bool JobApplicationInfo::isAppliedBy(JobSeeker* jobSeeker) {
 	return _jobSeeker == jobSeeker;
 }
 
+void JobApplicationInfo::addJobSeekerTo(JobSeekers* jobSeekers) {
+	jobSeekers->addJobSeeker(_jobSeeker);
+}
+
 JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job) {
 	_job = job;
 	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker);
@@ -35,6 +39,11 @@ void JobApplication::askForJobFrom(JobSeeker* jobSeeker, Jobs* jobs) {
 		jobs->addJob(_job);
 }
 
+void JobApplication::askForJobSeekerFrom(Job* job, JobSeekers* jobSeekers) {
+	if(_job == job)
+		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
+}
+
 JobApplications::JobApplications() {
 	vector<JobApplication*> jobApplications;
 	_jobApplications = jobApplications;
@@ -54,4 +63,10 @@ Jobs* JobApplications::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {
 		_jobApplications[index]->askForJobFrom(jobSeeker, jobs);
 	return jobs;
 }
-	
+
+JobSeekers* JobApplications::jobSeekersWhoApplied(Job* job) {
+	JobSeekers* jobSeekers = new JobSeekers();
+	for(int index = 0; index < _jobApplications.size(); ++index) 
+		_jobApplications[index]->askForJobSeekerFrom(job, jobSeekers);
+	return jobSeekers;
+}

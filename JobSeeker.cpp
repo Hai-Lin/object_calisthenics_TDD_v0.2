@@ -15,3 +15,11 @@ Resume* JobSeeker::currentResume() {
 	return _resume;
 }
 
+JobSeekers::JobSeekers() {
+	vector<JobSeeker*> jobSeekers;
+	_jobSeekers = jobSeekers;
+}
+
+void JobSeekers::addJobSeeker(JobSeeker* jobSeeker) {
+	_jobSeekers.push_back(jobSeeker);
+}

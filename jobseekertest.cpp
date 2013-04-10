@@ -12,17 +12,14 @@ TEST(JobSeekersCanApplyJob, applyOneJob) {
 	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
 	Job* atsJob = createATSJob();
 	Job* JReqJob = createJReqJob();
-	JobSeekerApplyJob* jobSeekerApplyJob = new JobSeekerApplyJob();
-	EXPECT_TRUE(jobSeekerApplyJob->applyJob(jobSeekerWithResume, atsJob));
-	EXPECT_TRUE(jobSeekerApplyJob->applyJob(jobSeekerWithResume, JReqJob));
-	EXPECT_TRUE(jobSeekerApplyJob->applyJob(jobSeekerWithoutResume, atsJob));
-	EXPECT_FALSE(jobSeekerApplyJob->applyJob(jobSeekerWithoutResume, JReqJob));
-	Jobs* jobs = jobSeekerApplyJob->getAllJobs(jobSeekerWithResume);
+	JobApplicationsManager* jobApplicationsManager = new JobApplicationsManager();
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, JReqJob));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob));
+	EXPECT_FALSE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, JReqJob));
+	Jobs* jobs = jobApplicationsManager->seeAllAppliedJobsBy(jobSeekerWithResume);
 	EXPECT_EQ(jobs->atIndex(0), atsJob);
 	EXPECT_EQ(jobs->atIndex(1), JReqJob);
-	JobSeeker* jobSeeker = createJobSeekerWithResume();
-	jobs = jobSeekerApplyJob->getAllJobs(jobSeeker);
-	EXPECT_EQ(NULL, jobs);
 }
 
 TEST(JobSeekersCanSaveJob, savejob) {
@@ -31,7 +28,6 @@ TEST(JobSeekersCanSaveJob, savejob) {
 	Job* atsJob = createATSJob();
 	Job* JReqJob = createJReqJob();
 	SavedJobsManager* savedJobsManager = new SavedJobsManager();
-	
 	savedJobsManager->saveJob(jobSeekerWithResume, atsJob);
 	savedJobsManager->saveJob(jobSeekerWithResume, JReqJob);
 	savedJobsManager->saveJob(jobSeekerWithoutResume, JReqJob);

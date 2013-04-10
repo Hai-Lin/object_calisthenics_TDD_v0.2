@@ -11,3 +11,7 @@ bool JobSeeker::hasResume() {
 		return false;
 }
 
+Resume* JobSeeker::currentResume() {
+	return _resume;
+}
+

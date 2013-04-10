@@ -1,3 +1,5 @@
+#ifndef JOBAPPLICATION
+#define JOBAPPLICATION
 #include "Job.h"
 #include "JobSeeker.h"
 #include "Resume.h"
@@ -8,7 +10,7 @@ class JobApplication {
 		JobSeeker* _jobSeeker;
 		Resume* _resume;
 	public:
-		JobApplication(Job* job, JobSeeker* jobSeeker, Resume* resume = NULL);
+		JobApplication(JobSeeker*, Job*);
 		bool isAppliedBy(JobSeeker*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 };
@@ -22,3 +24,4 @@ class JobApplications {
 		JobApplication* atIndex(int index);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 };
+#endif

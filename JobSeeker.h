@@ -11,6 +11,7 @@ class JobSeeker {
 	public:
 		JobSeeker(Resume* = NULL);
 		bool hasResume();
+		Resume* currentResume();
 };
 
 #endif

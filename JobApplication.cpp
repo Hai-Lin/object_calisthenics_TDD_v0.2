@@ -1,9 +1,9 @@
 #include "JobApplication.h"
 
-JobApplication::JobApplication(Job* job, JobSeeker* jobSeeker, Resume* resume) {
+JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job) {
 	_job = job;
 	_jobSeeker = jobSeeker;
-	_resume = resume;
+	_resume = jobSeeker->currentResume();
 }
 
 bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {

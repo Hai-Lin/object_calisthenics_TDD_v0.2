@@ -6,6 +6,6 @@ TEST(JobApplication, createJobApplication) {
 	Job* atsJob = createATSJob();
 	Job* JReqJob = createJReqJob();
 	Resume* resume = new Resume();
-	JobApplication(atsJob, jobSeekerWithResume, resume);
+	JobApplication(jobSeekerWithResume, atsJob);
 }
 

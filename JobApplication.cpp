@@ -1,13 +1,33 @@
 #include "JobApplication.h"
 
-JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job) {
-	_job = job;
+JobApplicationInfo::JobApplicationInfo(JobSeeker* jobSeeker) {
 	_jobSeeker = jobSeeker;
 	_resume = jobSeeker->currentResume();
 }
 
-bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {
+JobApplicationInfo::JobApplicationInfo(JobSeeker* jobSeeker, Resume* resume) {
+	_jobSeeker = jobSeeker;
+	_resume = resume;
+}	
+
+bool JobApplicationInfo::isAppliedBy(JobSeeker* jobSeeker) {
 	return _jobSeeker == jobSeeker;
+}
+
+JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job) {
+	_job = job;
+	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker);
+	_jobApplicationInfo = jobApplicationInfo;
+}
+
+JobApplication::JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job) {
+	_job = job;
+	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker, resume);
+	_jobApplicationInfo = jobApplicationInfo;
+}
+
+bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {
+	return _jobApplicationInfo->isAppliedBy(jobSeeker);
 }
 
 void JobApplication::askForJobFrom(JobSeeker* jobSeeker, Jobs* jobs) {

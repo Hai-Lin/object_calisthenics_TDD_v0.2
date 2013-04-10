@@ -1,7 +1,8 @@
 #include"Job.h"
 
-Job::Job(JobType jobType) {
+Job::Job(Recruiter* recruiter,JobType jobType) {
 	_jobType = jobType;
+	_recruiter = recruiter;
 }
 
 bool Job::isThisJobNeedResume() {
@@ -9,6 +10,10 @@ bool Job::isThisJobNeedResume() {
 		return false;
 	if(_jobType == JReq)
 		return true;
+}
+
+bool Job::isPostedBy(Recruiter* recruiter) {
+	return recruiter == _recruiter;
 }
 	
 Jobs::Jobs() {

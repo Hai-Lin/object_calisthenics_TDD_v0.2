@@ -4,12 +4,10 @@ TEST(EmptyTest, emptytest) {
 
 }
 
-TEST(TwoTypeOfJob, ATS) {
-	Job* job = new Job(ATS);
-	EXPECT_FALSE(job->isThisJobNeedResume());
+TEST(TwoTypeOfJob, needResumeOrNot) {
+	Job* atsJob = createATSJob();
+	Job* JReqJob = createJReqJob();
+	EXPECT_FALSE(atsJob->isThisJobNeedResume());
+	EXPECT_TRUE(JReqJob->isThisJobNeedResume());
 }
 
-TEST(TwoTypeOfJob, JReq) {
-	Job* job = new Job(JReq);
-	EXPECT_TRUE(job->isThisJobNeedResume());
-}

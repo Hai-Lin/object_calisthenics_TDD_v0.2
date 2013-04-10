@@ -2,13 +2,15 @@
 
 Job* createATSJob() {
 	JobType type = ATS;
-	Job* job = new Job(type);
+	Recruiter* recruiter = new Recruiter();
+	Job* job = new Job(recruiter, type);
 	return job;
 }
 
 Job* createJReqJob() {
 	JobType type = JReq;
-	Job* job = new Job(type);
+	Recruiter* recruiter = new Recruiter();
+	Job* job = new Job(recruiter,type);
 	return job;
 }
 

@@ -1,13 +1,16 @@
 #include"utility.h"
 #ifndef JOB
 #define JOB
+class Recruiter;
 
 class Job {
 	private:
 		JobType _jobType;
+		Recruiter* _recruiter;
 	public:
-		Job(JobType);
+		Job(Recruiter*, JobType);
 		bool isThisJobNeedResume();
+		bool isPostedBy(Recruiter*);
 };
 
 class Jobs {

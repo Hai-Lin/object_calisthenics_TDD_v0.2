@@ -14,9 +14,9 @@ TEST(RecruiterCanPostJob, postOneJob) {
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job1 = new Job(ATS);
-	Job* job2 = new Job(JReq);
-	Job* job3 = new Job(ATS);
+	Job* job1 = createATSJob();
+	Job* job2 = createATSJob();
+	Job* job3 = createATSJob();
 	RecruiterPostJob* recruiterPostJob = new RecruiterPostJob();
 	recruiterPostJob->postJob(recruiter, job1);
 	recruiterPostJob->postJob(recruiter, job2);

@@ -3,7 +3,6 @@
 
 #include "utility.h"
 #include "Resume.h"
-#include "RecruiterPostJob.h"
 #include "SavedJob.h"
 #include "jobapplication.h"
 #include "SavedJobsManager.h"

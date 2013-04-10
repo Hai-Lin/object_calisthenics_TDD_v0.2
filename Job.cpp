@@ -32,3 +32,7 @@ Job* Jobs::atIndex(int index) {
 	}
 	return _jobs[index];
 }
+
+int Jobs::sizeOf() {
+	return _jobs.size();
+}

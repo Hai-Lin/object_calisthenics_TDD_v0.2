@@ -4,8 +4,10 @@
 class JobsManager {
 	private:
 		Jobs* _jobs;
+		void askJobFrom(Recruiter*, Job*, Jobs*);
 	public:
 		JobsManager();
 		void postJob(Recruiter*, JobType);
-		//Jobs* seeJobsPostBy(Recruiter*);
+		void postJob(Job*);
+		Jobs* seeJobsPostBy(Recruiter*);
 };

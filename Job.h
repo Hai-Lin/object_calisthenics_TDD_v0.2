@@ -20,6 +20,7 @@ class Jobs {
 		Jobs();
 		void addJob(Job*);
 		Job* atIndex(int index);
+		int sizeOf();
 };
 
 #endif

@@ -8,6 +8,7 @@
 #include "jobapplication.h"
 #include "SavedJobsManager.h"
 #include "JobApplicationsManager.h"
+#include "JobsManager.h"
 
 Job* createATSJob();
 Job* createJReqJob();

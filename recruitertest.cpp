@@ -14,20 +14,13 @@ TEST(RecruiterCanPostJob, postOneJob) {
 
 TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	Recruiter* recruiter = new Recruiter();
-	Job* job1 = createATSJob();
-	Job* job2 = createATSJob();
-	Job* job3 = createATSJob();
-	RecruiterPostJob* recruiterPostJob = new RecruiterPostJob();
-	recruiterPostJob->postJob(recruiter, job1);
-	recruiterPostJob->postJob(recruiter, job2);
-	recruiterPostJob->postJob(recruiter, job3);
-	Jobs* jobs = recruiterPostJob->getRecruiterJobs(recruiter);
-	EXPECT_EQ(jobs->atIndex(0), job1);
-	EXPECT_EQ(jobs->atIndex(1), job2);
+	JobsManager* jobsManager = new JobsManager();
+	JobType ats = ATS;
+	JobType jreq = JReq;
+	jobsManager->postJob(recruiter,ats);
+	jobsManager->postJob(recruiter,jreq);
+	Job* job3 = new Job(recruiter, ats);
+	jobsManager->postJob(job3);
+	Jobs* jobs = jobsManager->listJobsPostBy(recruiter);
 	EXPECT_EQ(jobs->atIndex(2), job3);
-	delete recruiterPostJob;
-	delete recruiter;
-	delete job1;
-	delete job2;
-	delete job3;
 }

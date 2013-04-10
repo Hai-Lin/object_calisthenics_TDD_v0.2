@@ -6,7 +6,7 @@ class Recruiter;
 class Job {
 	private:
 		JobType _jobType;
-		Recruiter* _recruiter;
+		Recruiter* _postByRecruiter;
 	public:
 		Job(Recruiter*, JobType);
 		bool isThisJobNeedResume();

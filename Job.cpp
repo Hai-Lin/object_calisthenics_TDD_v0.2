@@ -2,7 +2,7 @@
 
 Job::Job(Recruiter* recruiter,JobType jobType) {
 	_jobType = jobType;
-	_recruiter = recruiter;
+	_postByRecruiter = recruiter;
 }
 
 bool Job::isThisJobNeedResume() {
@@ -13,7 +13,7 @@ bool Job::isThisJobNeedResume() {
 }
 
 bool Job::isPostedBy(Recruiter* recruiter) {
-	return recruiter == _recruiter;
+	return recruiter == _postByRecruiter;
 }
 	
 Jobs::Jobs() {

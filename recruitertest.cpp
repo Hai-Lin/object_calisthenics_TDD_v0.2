@@ -62,3 +62,5 @@ TEST(RecruiterCanGetJobSeekersByDateAndJob, getJobSeekersByDateAndJob) {
 	EXPECT_EQ(jobSeekers->atIndex(0), jobSeekerWithResume);
 	EXPECT_EQ(jobSeekers->atIndex(1), jobSeekerWithoutResume);
 }
+
+

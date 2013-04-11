@@ -58,7 +58,7 @@ TEST(RecruiterCanGetJobSeekersByDateAndJob, getJobSeekersByDateAndJob) {
 	Date* date;
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob, date));
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob, date));
-	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersAppliedToOn(atsJob, date);
+	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersAppliedToOnPostBy(atsJob, date, recruiter);
 	EXPECT_EQ(jobSeekers->atIndex(0), jobSeekerWithResume);
 	EXPECT_EQ(jobSeekers->atIndex(1), jobSeekerWithoutResume);
 }

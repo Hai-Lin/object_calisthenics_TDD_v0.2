@@ -47,6 +47,7 @@ class JobApplication {
 		void askForJobSeekerFrom(Job*, Date*, JobSeekers*); 
 		void askForJobSeekerFrom(Job*, Date*, Recruiter*, JobSeekers*); 
 		int increaseJobApplicationNumber(Job*, int);
+		int increaseJobApplicationNumber(Recruiter*, int);
 };
 
 class JobApplications {
@@ -57,6 +58,7 @@ class JobApplications {
 		void addJobApplication(JobApplication*);
 		JobApplication* atIndex(int index);
 		int getApplicationNumber(Job*);
+		int getApplicationNumber(Recruiter*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);

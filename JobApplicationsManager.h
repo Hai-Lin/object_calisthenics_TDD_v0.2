@@ -8,6 +8,7 @@ class JobApplicationsManager {
 		JobApplicationsManager();
 		bool applyJob(JobSeeker*, Job*, Date*);
 		int getApplicationNumber(Job*);
+		int getApplicationNumber(Recruiter*);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);

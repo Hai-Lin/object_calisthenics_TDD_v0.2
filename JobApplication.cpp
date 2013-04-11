@@ -53,6 +53,12 @@ int JobApplication::increaseJobApplicationNumber(Job* job, int total) {
 	return total;
 }
 
+int JobApplication::increaseJobApplicationNumber(Recruiter* recruiter, int total) {
+	if(this->isPostBy(recruiter))
+		total++;
+	return total;
+}
+
 JobApplications::JobApplications() {
 	vector<JobApplication*> jobApplications;
 	_jobApplications = jobApplications;
@@ -70,6 +76,13 @@ int JobApplications::getApplicationNumber(Job* job) {
 	int result = 0;
 	for(int index = 0; index < _jobApplications.size(); ++index) 
 		result = _jobApplications[index]->increaseJobApplicationNumber(job, result);
+	return result;
+}
+
+int JobApplications::getApplicationNumber(Recruiter* recruiter) {
+	int result = 0;
+	for(int index = 0; index < _jobApplications.size(); ++index) 
+		result = _jobApplications[index]->increaseJobApplicationNumber(recruiter, result);
 	return result;
 }
 

@@ -21,6 +21,10 @@ int JobApplicationsManager::getApplicationNumber(Job* job) {
 	return _jobApplications->getApplicationNumber(job);
 }
 
+int JobApplicationsManager::getApplicationNumber(Recruiter* recruiter) {
+	return _jobApplications->getApplicationNumber(recruiter);
+}
+
 Jobs* JobApplicationsManager::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {
 	return _jobApplications->seeAllAppliedJobsBy(jobSeeker);
 }

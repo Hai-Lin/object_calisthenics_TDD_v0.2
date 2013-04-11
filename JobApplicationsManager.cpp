@@ -9,9 +9,9 @@ bool JobApplicationsManager::canApplyThisJob(JobSeeker* jobSeeker, Job* job) {
 	return job->isThisJobNeedResume() and jobSeeker->hasResume() or !job->isThisJobNeedResume();
 }
 
-bool JobApplicationsManager::applyJob(JobSeeker* jobSeeker, Job* job) {
+bool JobApplicationsManager::applyJob(JobSeeker* jobSeeker, Job* job, Date* date) {
 	if(canApplyThisJob(jobSeeker, job)) {
-		JobApplication* jobApplication = new JobApplication(jobSeeker, job);
+		JobApplication* jobApplication = new JobApplication(jobSeeker, job, date);
 		_jobApplications->addJobApplication(jobApplication);
 	}
 	return canApplyThisJob(jobSeeker, job);

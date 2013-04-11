@@ -1,32 +1,14 @@
 #include "JobApplication.h"
 
-JobApplicatorInfo::JobApplicatorInfo(JobSeeker* jobSeeker) {
-	_jobSeeker = jobSeeker;
-	_resume = jobSeeker->currentResume();
-}
-
-JobApplicatorInfo::JobApplicatorInfo(JobSeeker* jobSeeker, Resume* resume) {
-	_jobSeeker = jobSeeker;
-	_resume = resume;
-}	
-
-bool JobApplicatorInfo::isAppliedBy(JobSeeker* jobSeeker) {
-	return _jobSeeker == jobSeeker;
-}
-
-void JobApplicatorInfo::addJobSeekerTo(JobSeekers* jobSeekers) {
-	jobSeekers->addJobSeeker(_jobSeeker);
-}
-
-JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job) {
-	_job = job;
-	JobApplicatorInfo* jobApplicationInfo = new JobApplicatorInfo(jobSeeker);
+JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job, Date* date) {
+	_date = date;	
+	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker, job);
 	_jobApplicationInfo = jobApplicationInfo;
 }
 
-JobApplication::JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job) {
-	_job = job;
-	JobApplicatorInfo* jobApplicationInfo = new JobApplicatorInfo(jobSeeker, resume);
+JobApplication::JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date) {
+	_date = date;	
+	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker, resume, job);
 	_jobApplicationInfo = jobApplicationInfo;
 }
 
@@ -35,13 +17,11 @@ bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {
 }
 
 void JobApplication::askForJobFrom(JobSeeker* jobSeeker, Jobs* jobs) {
-	if(this->isAppliedBy(jobSeeker))
-		jobs->addJob(_job);
+	_jobApplicationInfo->askForJobFrom(jobSeeker, jobs);
 }
 
 void JobApplication::askForJobSeekerFrom(Job* job, JobSeekers* jobSeekers) {
-	if(_job == job)
-		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
+	_jobApplicationInfo->askForJobSeekerFrom(job, jobSeekers);
 }
 
 JobApplications::JobApplications() {

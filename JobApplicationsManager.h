@@ -6,7 +6,7 @@ class JobApplicationsManager {
 		bool canApplyThisJob(JobSeeker*, Job*);
 	public:
 		JobApplicationsManager();
-		bool applyJob(JobSeeker*, Job*);
+		bool applyJob(JobSeeker*, Job*, Date*);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoApplied(Job*);
 };

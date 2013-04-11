@@ -3,6 +3,7 @@
 #include "Job.h"
 #include "JobSeeker.h"
 #include "Resume.h"
+#include "Date.h"
 
 class JobApplicatorInfo {
 	private:
@@ -15,13 +16,25 @@ class JobApplicatorInfo {
 		void addJobSeekerTo(JobSeekers*);
 };
 
-class JobApplication {
+class JobApplicationInfo {
 	private:
 		Job* _job;
-		JobApplicatorInfo* _jobApplicationInfo;
+		JobApplicatorInfo* _jobApplicatorInfo;
 	public:
-		JobApplication(JobSeeker*, Job*);
-		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job);
+		JobApplicationInfo(JobSeeker*, Job*);
+		JobApplicationInfo(JobSeeker* jobSeeker, Resume* resume, Job* job);
+		bool isAppliedBy(JobSeeker*);
+		void askForJobFrom(JobSeeker*, Jobs*);	
+		void askForJobSeekerFrom(Job*, JobSeekers*);
+};
+
+class JobApplication {
+	private:
+		Date* _date;
+		JobApplicationInfo* _jobApplicationInfo;
+	public:
+		JobApplication(JobSeeker*, Job*, Date*);
+		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date);
 		bool isAppliedBy(JobSeeker*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);

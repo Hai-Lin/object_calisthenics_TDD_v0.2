@@ -8,15 +8,16 @@ TEST(JobSeekerHaveResume, haveResumeTest) {
 }
 
 TEST(JobSeekersCanApplyJob, applyOneJob) {
+	Date* date;
 	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();
 	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
 	Job* atsJob = createATSJob();
 	Job* JReqJob = createJReqJob();
 	JobApplicationsManager* jobApplicationsManager = new JobApplicationsManager();
-	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob));
-	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, JReqJob));
-	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob));
-	EXPECT_FALSE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, JReqJob));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob, date));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, JReqJob, date));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob, date));
+	EXPECT_FALSE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, JReqJob, date));
 	Jobs* jobs = jobApplicationsManager->seeAllAppliedJobsBy(jobSeekerWithResume);
 	EXPECT_EQ(jobs->atIndex(0), atsJob);
 	EXPECT_EQ(jobs->atIndex(1), JReqJob);

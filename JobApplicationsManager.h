@@ -9,5 +9,6 @@ class JobApplicationsManager {
 		bool applyJob(JobSeeker*, Job*, Date*);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoApplied(Job*);
+		JobSeekers* jobSeekersAppliedOn(Date*);
 };
 

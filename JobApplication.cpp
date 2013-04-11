@@ -24,6 +24,11 @@ void JobApplication::askForJobSeekerFrom(Job* job, JobSeekers* jobSeekers) {
 	_jobApplicationInfo->askForJobSeekerFrom(job, jobSeekers);
 }
 
+void JobApplication::askForJobSeekerFrom(Date* date, JobSeekers* jobSeekers) {
+	if(_date == date)
+		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
+}
+
 JobApplications::JobApplications() {
 	vector<JobApplication*> jobApplications;
 	_jobApplications = jobApplications;
@@ -48,5 +53,12 @@ JobSeekers* JobApplications::jobSeekersWhoApplied(Job* job) {
 	JobSeekers* jobSeekers = new JobSeekers();
 	for(int index = 0; index < _jobApplications.size(); ++index) 
 		_jobApplications[index]->askForJobSeekerFrom(job, jobSeekers);
+	return jobSeekers;
+}
+
+JobSeekers* JobApplications::jobSeekersAppliedOn(Date* date) {
+	JobSeekers* jobSeekers = new JobSeekers();
+	for(int index = 0; index < _jobApplications.size(); ++index)
+		_jobApplications[index]->askForJobSeekerFrom(date, jobSeekers);
 	return jobSeekers;
 }

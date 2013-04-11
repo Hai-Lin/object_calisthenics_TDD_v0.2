@@ -25,4 +25,6 @@ JobSeekers* JobApplicationsManager::jobSeekersWhoApplied(Job* job) {
 	return _jobApplications->jobSeekersWhoApplied(job);
 }
 
-
+JobSeekers* JobApplicationsManager::jobSeekersAppliedOn(Date* date) {	
+	return _jobApplications->jobSeekersAppliedOn(date);
+}

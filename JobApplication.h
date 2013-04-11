@@ -24,6 +24,7 @@ class JobApplicationInfo {
 		JobApplicationInfo(JobSeeker*, Job*);
 		JobApplicationInfo(JobSeeker* jobSeeker, Resume* resume, Job* job);
 		bool isAppliedBy(JobSeeker*);
+		void addJobSeekerTo(JobSeekers*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);
 };
@@ -38,6 +39,7 @@ class JobApplication {
 		bool isAppliedBy(JobSeeker*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);
+		void askForJobSeekerFrom(Date*, JobSeekers*); 
 };
 
 class JobApplications {
@@ -49,5 +51,6 @@ class JobApplications {
 		JobApplication* atIndex(int index);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoApplied(Job*);
+		JobSeekers* jobSeekersAppliedOn(Date*);
 };
 #endif

@@ -2,13 +2,18 @@
 
 Job* createATSJob() {
 	Recruiter* recruiter = new Recruiter();
-	ATSJob* job = new ATSJob(recruiter);
+	Job* job = new ATSJob(recruiter);
 	return job;
 }
 
 Job* createJReqJob() {
 	Recruiter* recruiter = new Recruiter();
-	JReq* job = new JReqJob(recruiter);
+	Job* job = new JReqJob(recruiter);
+	return job;
+}
+
+Job* createJReqJob(Recruiter* recruiter) {
+	Job* job = new JReqJob(recruiter);
 	return job;
 }
 

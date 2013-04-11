@@ -29,3 +29,10 @@ int Jobs::sizeOf() {
 	return _jobs.size();
 }
 
+bool ATSJob::isThisJobNeedResume() {
+	return false;
+}
+
+bool JReqJob::isThisJobNeedResume() {
+	return true;
+}

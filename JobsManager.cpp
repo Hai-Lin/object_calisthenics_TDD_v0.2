@@ -10,11 +10,6 @@ void JobsManager::askJobFrom(Recruiter* recruiter, Job* job, Jobs* jobs) {
 		jobs->addJob(job);
 }
 
-void JobsManager::postJob(Recruiter* recruiter, JobType jobType) {
-	Job* job = new Job(recruiter, jobType);
-	_jobs->addJob(job);
-}
-
 void JobsManager::postJob(Job* job) {
 	_jobs->addJob(job);
 }

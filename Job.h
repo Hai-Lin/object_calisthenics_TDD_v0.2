@@ -25,6 +25,13 @@ class Jobs {
 class ATSJob : public Job {
 	public:
 		ATSJob(Recruiter* recruiter) : Job(recruiter)  {}
+		bool isThisJobNeedResume();
+};
+
+class JReqJob : public Job {
+	public:
+		JReqJob(Recruiter* recruiter) : Job(recruiter) {}
+		bool isThisJobNeedResume();
 };
 
 #endif

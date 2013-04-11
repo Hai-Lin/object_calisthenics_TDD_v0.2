@@ -7,7 +7,6 @@ class JobsManager {
 		void askJobFrom(Recruiter*, Job*, Jobs*);
 	public:
 		JobsManager();
-		void postJob(Recruiter*, JobType);
 		void postJob(Job*);
 		Jobs* seeJobsPostBy(Recruiter*);
 };

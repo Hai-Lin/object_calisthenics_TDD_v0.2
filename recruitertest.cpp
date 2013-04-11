@@ -4,20 +4,18 @@
 TEST(RecruiterCanSeeAListOfJobTheyPost, postMutipleJob) {
 	Recruiter* recruiter = new Recruiter();
 	JobsManager* jobsManager = new JobsManager();
-	jobsManager->postJob(recruiter,ATS);
-	jobsManager->postJob(recruiter,JReq);
-	Job* job3 = new Job(recruiter, JReq);
-	jobsManager->postJob(job3);
+	Job* job = new JReqJob(recruiter);
+	jobsManager->postJob(job);
 	Jobs* jobs = jobsManager->seeJobsPostBy(recruiter);
-	EXPECT_EQ(jobs->atIndex(2), job3);
+	EXPECT_EQ(jobs->atIndex(0), job);
 }
 
 TEST(RecruiterCanSeeJobSeekersByJob, seeJobseekerByJob) {
 	Recruiter* recruiter = new Recruiter();
 	JobsManager* jobsManager = new JobsManager();
 	JobApplicationsManager* jobApplicationsManager = new JobApplicationsManager();
-	Job* atsJob = new Job(recruiter, ATS);
-	Job* JReqJob = new Job(recruiter, JReq);
+	Job* atsJob = new ATSJob(recruiter);
+	Job* JReqJob = createJReqJob(recruiter);
 	jobsManager->postJob(atsJob);
 	jobsManager->postJob(JReqJob);
 	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();

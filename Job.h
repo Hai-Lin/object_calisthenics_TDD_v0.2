@@ -23,4 +23,10 @@ class Jobs {
 		int sizeOf();
 };
 
+class ATSJob : public Job {
+	public:
+		ATSJob(Recruiter*);
+
+};
+
 #endif

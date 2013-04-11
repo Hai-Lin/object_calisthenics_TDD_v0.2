@@ -1,9 +1,8 @@
 #include"testhelper.h"
 
 Job* createATSJob() {
-	JobType type = ATS;
 	Recruiter* recruiter = new Recruiter();
-	Job* job = new Job(recruiter, type);
+	ATSJob* job = new ATSJob(recruiter);
 	return job;
 }
 

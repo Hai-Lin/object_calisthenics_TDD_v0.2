@@ -17,6 +17,10 @@ bool JobApplicationsManager::applyJob(JobSeeker* jobSeeker, Job* job, Date* date
 	return canApplyThisJob(jobSeeker, job);
 }
 
+int JobApplicationsManager::getApplicationNumber(Job* job) {
+	return _jobApplications->getApplicationNumber(job);
+}
+
 Jobs* JobApplicationsManager::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {
 	return _jobApplications->seeAllAppliedJobsBy(jobSeeker);
 }

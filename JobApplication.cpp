@@ -47,6 +47,12 @@ void JobApplication::askForJobSeekerFrom(Job* job, Date* date, Recruiter* recrui
 		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
 }
 
+int JobApplication::increaseJobApplicationNumber(Job* job, int total) {
+	if(this->isJob(job))
+		total++;
+	return total;
+}
+
 JobApplications::JobApplications() {
 	vector<JobApplication*> jobApplications;
 	_jobApplications = jobApplications;
@@ -58,6 +64,13 @@ void JobApplications::addJobApplication(JobApplication* jobApplication) {
 
 JobApplication* JobApplications::atIndex(int index) {
 	return _jobApplications[index];
+}
+
+int JobApplications::getApplicationNumber(Job* job) {
+	int result = 0;
+	for(int index = 0; index < _jobApplications.size(); ++index) 
+		result = _jobApplications[index]->increaseJobApplicationNumber(job, result);
+	return result;
 }
 
 Jobs* JobApplications::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {

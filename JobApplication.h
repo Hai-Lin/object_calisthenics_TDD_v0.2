@@ -36,8 +36,8 @@ class JobApplication {
 		Date* _date;
 		JobApplicationInfo* _jobApplicationInfo;
 		bool isAppliedBy(JobSeeker*);
-		bool isJob(Job*);
 		bool isPostBy(Recruiter*);
+		bool isJob(Job*);
 	public:
 		JobApplication(JobSeeker*, Job*, Date*);
 		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date);
@@ -46,6 +46,7 @@ class JobApplication {
 		void askForJobSeekerFrom(Job*, JobSeekers*);
 		void askForJobSeekerFrom(Job*, Date*, JobSeekers*); 
 		void askForJobSeekerFrom(Job*, Date*, Recruiter*, JobSeekers*); 
+		int increaseJobApplicationNumber(Job*, int);
 };
 
 class JobApplications {
@@ -55,6 +56,7 @@ class JobApplications {
 		JobApplications();
 		void addJobApplication(JobApplication*);
 		JobApplication* atIndex(int index);
+		int getApplicationNumber(Job*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);

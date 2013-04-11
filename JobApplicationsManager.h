@@ -10,5 +10,6 @@ class JobApplicationsManager {
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
+		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);
 };
 

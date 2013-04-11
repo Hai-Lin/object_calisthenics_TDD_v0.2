@@ -28,3 +28,7 @@ JobSeekers* JobApplicationsManager::jobSeekersWhoAppliedTo(Job* job) {
 JobSeekers* JobApplicationsManager::jobSeekersAppliedOn(Date* date) {	
 	return _jobApplications->jobSeekersAppliedOn(date);
 }
+
+JobSeekers* JobApplicationsManager::jobSeekersAppliedToOn(Job* job, Date* date) {
+	return _jobApplications->jobSeekersAppliedToOn(job, date);
+}

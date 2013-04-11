@@ -23,6 +23,7 @@ class JobApplicationInfo {
 	public:
 		JobApplicationInfo(JobSeeker*, Job*);
 		JobApplicationInfo(JobSeeker* jobSeeker, Resume* resume, Job* job);
+		bool isJob(Job*);
 		bool isAppliedBy(JobSeeker*);
 		void addJobSeekerTo(JobSeekers*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
@@ -34,12 +35,14 @@ class JobApplication {
 		Date* _date;
 		JobApplicationInfo* _jobApplicationInfo;
 		bool isAppliedBy(JobSeeker*);
+		bool isJob(Job*);
 	public:
 		JobApplication(JobSeeker*, Job*, Date*);
 		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);
 		void askForJobSeekerFrom(Date*, JobSeekers*); 
+		void askForJobSeekerFrom(Job*, Date*, JobSeekers*); 
 };
 
 class JobApplications {
@@ -52,5 +55,6 @@ class JobApplications {
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
+		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);
 };
 #endif

@@ -16,6 +16,10 @@ bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {
 	return _jobApplicationInfo->isAppliedBy(jobSeeker);
 }
 
+bool JobApplication::isJob(Job* job) {
+	return _jobApplicationInfo->isJob(job);
+}
+
 void JobApplication::askForJobFrom(JobSeeker* jobSeeker, Jobs* jobs) {
 	_jobApplicationInfo->askForJobFrom(jobSeeker, jobs);
 }
@@ -26,6 +30,11 @@ void JobApplication::askForJobSeekerFrom(Job* job, JobSeekers* jobSeekers) {
 
 void JobApplication::askForJobSeekerFrom(Date* date, JobSeekers* jobSeekers) {
 	if(_date == date)
+		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
+}
+
+void JobApplication::askForJobSeekerFrom(Job* job, Date* date, JobSeekers* jobSeekers) {
+	if(_date == date and this->isJob(job))
 		_jobApplicationInfo->addJobSeekerTo(jobSeekers);
 }
 
@@ -60,5 +69,12 @@ JobSeekers* JobApplications::jobSeekersAppliedOn(Date* date) {
 	JobSeekers* jobSeekers = new JobSeekers();
 	for(int index = 0; index < _jobApplications.size(); ++index)
 		_jobApplications[index]->askForJobSeekerFrom(date, jobSeekers);
+	return jobSeekers;
+}
+
+JobSeekers* JobApplications::jobSeekersAppliedToOn(Job* job, Date* date) {
+	JobSeekers* jobSeekers = new JobSeekers();
+	for(int index = 0; index < _jobApplications.size(); ++index)
+		_jobApplications[index]->askForJobSeekerFrom(job, date, jobSeekers);
 	return jobSeekers;
 }

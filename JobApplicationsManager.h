@@ -11,5 +11,6 @@ class JobApplicationsManager {
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);
+		JobSeekers* jobSeekersAppliedToOnPostBy(Job*, Date*, Recruiter*);
 };
 

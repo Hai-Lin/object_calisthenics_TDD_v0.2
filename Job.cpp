@@ -1,15 +1,7 @@
 #include"Job.h"
 
-Job::Job(Recruiter* recruiter,JobType jobType) {
-	_jobType = jobType;
+Job::Job(Recruiter* recruiter) {
 	_postByRecruiter = recruiter;
-}
-
-bool Job::isThisJobNeedResume() {
-	if(_jobType == ATS) 
-		return false;
-	if(_jobType == JReq)
-		return true;
 }
 
 bool Job::isPostedBy(Recruiter* recruiter) {
@@ -36,3 +28,4 @@ Job* Jobs::atIndex(int index) {
 int Jobs::sizeOf() {
 	return _jobs.size();
 }
+

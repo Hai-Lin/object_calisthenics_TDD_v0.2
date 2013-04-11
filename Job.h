@@ -5,11 +5,10 @@ class Recruiter;
 
 class Job {
 	private:
-		JobType _jobType;
 		Recruiter* _postByRecruiter;
 	public:
-		Job(Recruiter*, JobType);
-		bool isThisJobNeedResume();
+		Job(Recruiter*);
+		virtual bool isThisJobNeedResume() = 0;
 		bool isPostedBy(Recruiter*);
 };
 
@@ -25,8 +24,7 @@ class Jobs {
 
 class ATSJob : public Job {
 	public:
-		ATSJob(Recruiter*);
-
+		ATSJob(Recruiter* recruiter) : Job(recruiter)  {}
 };
 
 #endif

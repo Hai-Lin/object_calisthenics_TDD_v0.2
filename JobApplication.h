@@ -7,13 +7,13 @@
 
 class JobApplicatorInfo {
 	private:
-		Resume* _resume;
 		JobSeeker* _jobSeeker;
+		Resume* _resume;
 	public:
 		JobApplicatorInfo(JobSeeker*);
 		JobApplicatorInfo(JobSeeker* jobSeeker, Resume* resume);
-		bool isAppliedBy(JobSeeker*);
 		void addJobSeekerTo(JobSeekers*);
+		bool isAppliedBy(JobSeeker*);
 };
 
 class JobApplicationInfo {
@@ -23,8 +23,8 @@ class JobApplicationInfo {
 	public:
 		JobApplicationInfo(JobSeeker*, Job*);
 		JobApplicationInfo(JobSeeker* jobSeeker, Resume* resume, Job* job);
-		bool isJob(Job*);
 		bool isAppliedBy(JobSeeker*);
+		bool isJob(Job*);
 		void addJobSeekerTo(JobSeekers*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);
@@ -40,8 +40,8 @@ class JobApplication {
 		JobApplication(JobSeeker*, Job*, Date*);
 		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date);
 		void askForJobFrom(JobSeeker*, Jobs*);	
-		void askForJobSeekerFrom(Job*, JobSeekers*);
 		void askForJobSeekerFrom(Date*, JobSeekers*); 
+		void askForJobSeekerFrom(Job*, JobSeekers*);
 		void askForJobSeekerFrom(Job*, Date*, JobSeekers*); 
 };
 
@@ -52,9 +52,9 @@ class JobApplications {
 		JobApplications();
 		void addJobApplication(JobApplication*);
 		JobApplication* atIndex(int index);
-		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 		JobSeekers* jobSeekersAppliedToOn(Job*, Date*);
+		Jobs* seeAllAppliedJobsBy(JobSeeker*);
 };
 #endif

@@ -20,6 +20,7 @@ class JobSeekers {
 	public:
 		JobSeekers();
 		void addJobSeeker(JobSeeker*);
+		JobSeeker* atIndex(int);
 };
 
 #endif

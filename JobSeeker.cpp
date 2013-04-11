@@ -23,3 +23,7 @@ JobSeekers::JobSeekers() {
 void JobSeekers::addJobSeeker(JobSeeker* jobSeeker) {
 	_jobSeekers.push_back(jobSeeker);
 }
+
+JobSeeker* JobSeekers::atIndex(int index) {
+	return _jobSeekers[index];
+}

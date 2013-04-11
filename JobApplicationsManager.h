@@ -8,7 +8,7 @@ class JobApplicationsManager {
 		JobApplicationsManager();
 		bool applyJob(JobSeeker*, Job*, Date*);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
-		JobSeekers* jobSeekersWhoApplied(Job*);
+		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 };
 

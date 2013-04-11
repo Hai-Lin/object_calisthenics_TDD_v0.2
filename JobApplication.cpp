@@ -49,7 +49,7 @@ Jobs* JobApplications::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {
 	return jobs;
 }
 
-JobSeekers* JobApplications::jobSeekersWhoApplied(Job* job) {
+JobSeekers* JobApplications::jobSeekersWhoAppliedTo(Job* job) {
 	JobSeekers* jobSeekers = new JobSeekers();
 	for(int index = 0; index < _jobApplications.size(); ++index) 
 		_jobApplications[index]->askForJobSeekerFrom(job, jobSeekers);

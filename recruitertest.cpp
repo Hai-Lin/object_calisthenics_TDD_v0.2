@@ -25,7 +25,9 @@ TEST(RecruiterCanSeeJobSeekersByJob, seeJobseekerByJob) {
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, JReqJob, date));
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob, date));
 	EXPECT_FALSE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, JReqJob, date));
-	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersWhoApplied(atsJob);
+	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersWhoAppliedTo(atsJob);
+	EXPECT_EQ(jobSeekers->atIndex(0), jobSeekerWithResume);
+	EXPECT_EQ(jobSeekers->atIndex(1), jobSeekerWithoutResume);
 }
 
 TEST(RecruiterCanGetJobSeekersByDate, getJobSeekersByDate) {
@@ -40,6 +42,23 @@ TEST(RecruiterCanGetJobSeekersByDate, getJobSeekersByDate) {
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob, date));
 	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob, date));
 	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersAppliedOn(date);
+	EXPECT_EQ(jobSeekers->atIndex(0), jobSeekerWithResume);
+	EXPECT_EQ(jobSeekers->atIndex(1), jobSeekerWithoutResume);
+}
+
+
+TEST(RecruiterCanGetJobSeekersByDateAndJob, getJobSeekersByDateAndJob) {
+	Recruiter* recruiter = new Recruiter();
+	JobsManager* jobsManager = new JobsManager();
+	JobApplicationsManager* jobApplicationsManager = new JobApplicationsManager();
+	Job* atsJob = new ATSJob(recruiter);
+	jobsManager->postJob(atsJob);
+	JobSeeker* jobSeekerWithResume = createJobSeekerWithResume();
+	JobSeeker* jobSeekerWithoutResume = createJobSeekerWithoutResume();
+	Date* date;
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithResume, atsJob, date));
+	EXPECT_TRUE(jobApplicationsManager->applyJob(jobSeekerWithoutResume, atsJob, date));
+	JobSeekers* jobSeekers = jobApplicationsManager->jobSeekersAppliedToOn(date, atsJob);
 	EXPECT_EQ(jobSeekers->atIndex(0), jobSeekerWithResume);
 	EXPECT_EQ(jobSeekers->atIndex(1), jobSeekerWithoutResume);
 }

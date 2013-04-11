@@ -50,7 +50,7 @@ class JobApplications {
 		void addJobApplication(JobApplication*);
 		JobApplication* atIndex(int index);
 		Jobs* seeAllAppliedJobsBy(JobSeeker*);
-		JobSeekers* jobSeekersWhoApplied(Job*);
+		JobSeekers* jobSeekersWhoAppliedTo(Job*);
 		JobSeekers* jobSeekersAppliedOn(Date*);
 };
 #endif

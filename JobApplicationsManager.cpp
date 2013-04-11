@@ -21,8 +21,8 @@ Jobs* JobApplicationsManager::seeAllAppliedJobsBy(JobSeeker* jobSeeker) {
 	return _jobApplications->seeAllAppliedJobsBy(jobSeeker);
 }
 
-JobSeekers* JobApplicationsManager::jobSeekersWhoApplied(Job* job) {
-	return _jobApplications->jobSeekersWhoApplied(job);
+JobSeekers* JobApplicationsManager::jobSeekersWhoAppliedTo(Job* job) {
+	return _jobApplications->jobSeekersWhoAppliedTo(job);
 }
 
 JobSeekers* JobApplicationsManager::jobSeekersAppliedOn(Date* date) {	

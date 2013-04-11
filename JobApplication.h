@@ -33,10 +33,10 @@ class JobApplication {
 	private:
 		Date* _date;
 		JobApplicationInfo* _jobApplicationInfo;
+		bool isAppliedBy(JobSeeker*);
 	public:
 		JobApplication(JobSeeker*, Job*, Date*);
 		JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date);
-		bool isAppliedBy(JobSeeker*);
 		void askForJobFrom(JobSeeker*, Jobs*);	
 		void askForJobSeekerFrom(Job*, JobSeekers*);
 		void askForJobSeekerFrom(Date*, JobSeekers*); 

@@ -7,9 +7,8 @@ Job* createATSJob() {
 }
 
 Job* createJReqJob() {
-	JobType type = JReq;
 	Recruiter* recruiter = new Recruiter();
-	Job* job = new Job(recruiter,type);
+	JReq* job = new JReqJob(recruiter);
 	return job;
 }
 

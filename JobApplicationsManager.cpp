@@ -1,8 +1,7 @@
 #include "JobApplicationsManager.h"
 
 JobApplicationsManager::JobApplicationsManager() {
-	JobApplications* jobApplications = new JobApplications();
-	_jobApplications = jobApplications;
+	_jobApplications = new JobApplications();
 }
 
 bool JobApplicationsManager::canApplyThisJob(JobSeeker* jobSeeker, Job* job) {

@@ -2,14 +2,12 @@
 
 JobApplication::JobApplication(JobSeeker* jobSeeker, Job* job, Date* date) {
 	_date = date;	
-	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker, job);
-	_jobApplicationInfo = jobApplicationInfo;
+	_jobApplicationInfo = new JobApplicationInfo(jobSeeker, job);
 }
 
 JobApplication::JobApplication(JobSeeker* jobSeeker, Resume* resume, Job* job, Date* date) {
 	_date = date;	
-	JobApplicationInfo* jobApplicationInfo = new JobApplicationInfo(jobSeeker, resume, job);
-	_jobApplicationInfo = jobApplicationInfo;
+	_jobApplicationInfo = new JobApplicationInfo(jobSeeker, resume, job);
 }
 
 bool JobApplication::isAppliedBy(JobSeeker* jobSeeker) {
